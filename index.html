@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+         input{
+             width: 200px;
+             border-radius: 10px;
+             border: 1px solid rgb(118, 179,28);
+             padding: 10px;
+            
+         }
+         button{
+             background: pink;
+             padding: 10px;
+             border-radius: 10px;
+             border: none;
+         }
+
+         button:hover{
+             background: orange;
+         }
+     </style>
+</head>
+<body>
+    <h1>Guess_Number</h1>
+    <input type="number" id="num">
+    <button id="btn">Guess</button>
+    <script>
+        const btn = document.getElementById('btn');
+        const random = Math.floor(Math.random()*6) + 1;
+        
+        btn.addEventListener('click', function(e){
+            let num = (document.getElementById('num')).value;
+            if(! num){
+                alert('input something, please!')
+                return;
+            }
+            if(num > 6){
+                alert('input number 1 ~ 6, please');
+                return;
+            }
+
+            num = parseInt(num);
+            if(num === random){
+                alert('Good Job, You are right!!!');
+                return;
+            }
+            if(num > random){
+                alert('smaller, pleass');
+                return;
+            }
+            if(num < random){
+                alert('bigger,please');
+                return;
+                
+            }
+        
+    
+            
+            
+        });
+    </script>
+    
+</body>
+</html>
