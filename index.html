@@ -23,37 +23,66 @@
              background: orange;
          }
      </style>
+    
+     <script
+     
+      src="https://cdn.jsdelivr.net/npm/sweetalert2@10">
+    
+    </script>
 </head>
 <body>
     <h1>Guess_Number</h1>
     <input type="number" id="num">
     <button id="btn">Guess</button>
     <script>
+
         const btn = document.getElementById('btn');
         const random = Math.floor(Math.random()*6) + 1;
         
         btn.addEventListener('click', function(e){
             let num = (document.getElementById('num')).value;
             if(! num){
-                alert('input something, please!')
+                Swal.fire({
+        title: '寫一點東西',
+        text: 'input something, please!',
+        icon: 'error',
+
+      })
+
                 return;
             }
             if(num > 6){
-                alert('input number 1 ~ 6, please');
+                Swal.fire({
+        title: '猜1~6而已',
+        text: '不要亂寫',
+        icon: 'info',
+                })
                 return;
             }
 
             num = parseInt(num);
             if(num === random){
-                alert('Good Job, You are right!!!');
+                  Swal.fire({
+        title: '猜對囉!',
+        text: '好棒棒',
+        icon: 'success',
+                })
                 return;
             }
             if(num > random){
-                alert('smaller, pleass');
+                Swal.fire({
+        title: '太大了',
+        text: '猜小一點',
+        icon: 'warning',
+                })
                 return;
             }
             if(num < random){
-                alert('bigger,please');
+                Swal.fire({
+        title: '太小了',
+        text: '猜大一點',
+        icon: 'warning',
+                })
                 return;
                 
             }
